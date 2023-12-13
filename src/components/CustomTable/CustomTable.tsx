@@ -20,6 +20,7 @@ interface tableProps {
         title: string;
         data: {
           name: string;
+          boldTitle?: boolean;
           index: number;
           base: number | null;
           VAT: number | null;
@@ -73,7 +74,7 @@ export const CustomTable = ({ data }: tableProps) => {
                       {i + 1}
                     </TableCell>
                     <TableCell colSpan={3}>
-                      <Typography fontWeight={"bold"}>{item.title}</Typography>{" "}
+                      <Typography fontWeight={"bold"}>{item.title}</Typography>
                     </TableCell>
                   </TableRow>
                 )}
@@ -86,7 +87,7 @@ export const CustomTable = ({ data }: tableProps) => {
                           style={{ backgroundColor: "#b7e6eb" }}
                           key={j}
                         >
-                          <TableCell>({j+1})</TableCell>
+                          <TableCell>({j + 1})</TableCell>
                           <TableCell colSpan={3}>
                             <Typography> {subSection.title}</Typography>{" "}
                           </TableCell>
@@ -94,12 +95,12 @@ export const CustomTable = ({ data }: tableProps) => {
                       )}
 
                       {subSection.data.map((row, i) => (
-                        <StyledTableRow key={row.name}>
+                        <StyledTableRow key={row.name} style={{fontWeight: 'bold'}}>
                           <TableCell> ({row.index}) </TableCell>
                           <TableCell
                             component="th"
                             scope="row"
-                            sx={{ fontWeight: row.editable ? "bold" : "" }}
+                            sx={{ fontWeight: row.editable || row.boldTitle ? "bold" : "" }}
                             colSpan={!row.base ? 2 : 0}
                           >
                             {row.name}
@@ -111,6 +112,7 @@ export const CustomTable = ({ data }: tableProps) => {
                                 variant="outlined"
                                 value={row.base}
                                 disabled={!row.editable}
+                                sx={{ fontWeight: row.boldTitle ? "bold" : "" }}
                                 size="small"
                               />
                             </TableCell>
@@ -123,6 +125,7 @@ export const CustomTable = ({ data }: tableProps) => {
                                 value={row.VAT}
                                 disabled={!row.editable}
                                 size="small"
+                                sx={{ fontWeight: row.boldTitle ? "bold" : "" }}
                                 onChange={(e) =>
                                   row.onChangeHandler &&
                                   row.onChangeHandler(e.target.value)

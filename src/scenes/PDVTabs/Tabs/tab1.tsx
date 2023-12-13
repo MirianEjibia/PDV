@@ -7,11 +7,12 @@ function createData(
   index: number,
   base: number | null,
   VAT: number|null,
+  boldTitle?: boolean,
   editable?: boolean,
   onChangeHandler?: React.Dispatch<SetStateAction<string | number | undefined>>,
 
 ) {
-  return { name, index, base, VAT, editable, onChangeHandler };
+  return { name, index, base, VAT, boldTitle, editable, onChangeHandler };
 }
 export const Tab1 = () => {
   const tableData = useMemo(() => {
@@ -44,7 +45,8 @@ export const Tab1 = () => {
         "ЗБИР (1+2+3+4)",
         5,
         262,
-        16.0
+        16.0,
+        true
       )
     ];
     const rows12 = [
@@ -70,7 +72,8 @@ export const Tab1 = () => {
         "ЗБИР (6+7+8)",
         9,
         262,
-        16.0
+        16.0,
+        true
       )
     ];
     const rows21 = [
@@ -78,7 +81,8 @@ export const Tab1 = () => {
         "Износ ПДВ у пореском периоду (5-9)",
         10,
         null,
-        12
+        12,
+        true
       )
     ];
 
@@ -88,9 +92,9 @@ export const Tab1 = () => {
         {
           // title: "ПРОМЕТ ДОБАРА И УСЛУГА",
           subSections: [
-            { title: "ПРОМЕТ ДОБАРА И УСЛУГА", data: rows11 },
-            { title: "ПРЕТХОДНИ ПОРЕЗ", data: rows12 },
-            { title: "ПОРЕСКА ОБАВЕЗА", data: rows21 },
+            { title: "ПРОМЕТ ДОБАРА И УСЛУГА", boldTitle: true, data: rows11 },
+            { title: "ПРЕТХОДНИ ПОРЕЗ", boldTitle: true, data: rows12 },
+            { title: "ПОРЕСКА ОБАВЕЗА", boldTitle: true, data: rows21 },
           ],
         }
       ],
