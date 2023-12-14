@@ -24,7 +24,7 @@ const router = createBrowserRouter([
           element: <Section1/>
       },
       {
-        path: 'pdvTabs/1',
+        path: 'pdvTabs',
         element: <PDVTabs/>
     }
     ]

@@ -11,7 +11,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 export const NavBar = () => {
   const location = useLocation();
-  const PDVTabsActivePath = ["/", "/pdvTabs/1"];
+  const PDVTabsActivePath = ["/", "/pdvTabs"];
   const navigate = useNavigate();
   return (
     <Drawer
@@ -26,7 +26,7 @@ export const NavBar = () => {
       <Box sx={{ overflow: "auto" }}>
         <List>
           {[
-            { label: "PDV tabs", path: ["/", "/pdvTabs/1"] },
+            { label: "PDV tabs", path: ["/", "/pdvTabs"] },
             { label: "test", path: ["/test", "/pdvTabs/test"] },
           ].map((item, index) => (
             <ListItem

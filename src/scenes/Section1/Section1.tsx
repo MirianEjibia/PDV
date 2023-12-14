@@ -49,7 +49,7 @@ export const Section1 = () => {
           {rows.map((row) => (
               <TableRow
                 component={Link}
-                to={`/pdvTabs/1`}
+                to={`/pdvTabs`}
                 style={{ cursor: "pointer" }}
                 key={row.desc}
                 hover={true}
