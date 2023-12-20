@@ -26,7 +26,7 @@ interface tableProps {
           VAT: number | null;
           editable?: boolean;
           onChangeHandler?: React.Dispatch<
-            SetStateAction<string | number | undefined>
+            SetStateAction<number>
           >;
         }[];
       }[];
@@ -89,7 +89,7 @@ export const CustomTable = ({ data }: tableProps) => {
                         >
                           <TableCell>({j + 1})</TableCell>
                           <TableCell colSpan={3}>
-                            <Typography> {subSection.title}</Typography>{" "}
+                            <Typography> {subSection.title}</Typography>
                           </TableCell>
                         </TableRow>
                       )}
@@ -128,7 +128,7 @@ export const CustomTable = ({ data }: tableProps) => {
                                 sx={{ fontWeight: row.boldTitle ? "bold" : "" }}
                                 onChange={(e) =>
                                   row.onChangeHandler &&
-                                  row.onChangeHandler(e.target.value)
+                                  row.onChangeHandler(+e.target.value)
                                 }
                               />
                             )}

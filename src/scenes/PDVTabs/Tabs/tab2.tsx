@@ -8,14 +8,14 @@ function createData(
   base: number | null,
   VAT: number,
   editable?: boolean,
-  onChangeHandler?: React.Dispatch<SetStateAction<string | number | undefined>>
+  onChangeHandler?: React.Dispatch<SetStateAction<number>>
 ) {
   return { name, index, base, VAT, editable, onChangeHandler };
 }
 
 export function Tab2() {
-  const [val1, setVal1] = useState<string | number>(1);
-  const [val2, setVal2] = useState<string | number>(2);
+  const [val1, setVal1] = useState<number>(1);
+  const [val2, setVal2] = useState<number>(2);
 
   const tableData = useMemo(() => {
     const rows11 = [

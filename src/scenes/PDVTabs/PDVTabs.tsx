@@ -4,7 +4,7 @@ import Tab from '@mui/material/Tab';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import { Tab2 } from './Tabs/tab2';
-import { Tab1 } from './Tabs/tab1';
+import { Tab1 } from './Tabs/tab1/tab1';
 import { Tab3 } from './Tabs/tab3';
 interface TabPanelProps {
   children?: React.ReactNode;
